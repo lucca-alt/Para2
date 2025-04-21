@@ -160,9 +160,13 @@ int main(){
     Set set;
     set.add('A');
     set.add('a');
+    set.add('9');
     set.add('B');
     set.add('C');
+    set.add('7');
+    std::cout << set.remove('Z') << std::endl;
     std::cout << set.size() << std::endl;
+    std::cout << set.contains('G') << std::endl;
 
     set.print();
     return 0;
