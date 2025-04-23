@@ -1,6 +1,6 @@
 #ifndef ORDEREDSET_H
 #define ORDEREDSET_H
-class Set {
+class Set { //caused problems with this header file so I did not use it, was not required anyways
    public:
       struct node {
         int value;
