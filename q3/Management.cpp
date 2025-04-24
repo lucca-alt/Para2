@@ -1,92 +1,73 @@
 #include <iostream>
 #include <algorithm>
+#include "Management.h"
 
 using namespace std;
 
-class Employee {
-private:
-    string name;
-    string position;
-    double salary;
 
-public:
-    Employee(string name, string position, double salary)
-        : name(name), position(position), salary(salary){}
+Employee::Employee(): name(""), position(""), salary(0.0){}
 
-    string getName(){
-        return name;
+string Employee::getName(){
+    return name;
+}
+
+void Employee::setName(string n){
+    name = n;
+}
+
+string Employee::getPosition(){
+    return position;
+}
+
+void Employee::setPosition(string p){
+    position = p;
+}
+
+double Employee::getSalary(){
+    return salary;
+}
+
+void Employee::setSalary(double s){
+    salary = s;
+}
+
+
+int Manager::getTeamSize(){
+    return teamSize;
+}
+
+void Manager::setTeamSize(int t){
+    teamSize = t;
+}
+
+double Manager::calculateBonus(){
+    double bonus;
+    double salary = getSalary();
+    double teamBonus = 0;
+
+    teamBonus = 1.0/20 * salary * teamSize;
+
+    bonus = 1.0/10 * salary + teamBonus;
+
+    return bonus;
+}
+
+
+string Developer::getProgrammingLanguage(){
+    return programmingLanguage;
+}
+
+void Developer::setProgrammingLanguage(string pl){
+    programmingLanguage = pl;
+}
+
+double Developer::calculateBonus() {
+    double bonus;
+    double salary = getSalary();
+
+    if(programmingLanguage == "Java"){
+        return bonus = 3.0/20 * salary;
+    } else {
+        return bonus = 1.0/10 * salary;
     }
-
-    void setName(string n){
-        name = n;
-    }
-
-    string getPosition(){
-        return position;
-    }
-
-    void setPosition(string p){
-        position = p;
-    }
-
-    double getSalary(){
-        return salary;
-    }
-
-    void setSalary(double s){
-        salary = s;
-    }
-
-    virtual double calculateBonus() = 0;
-};
-
-class Manager : public Employee{
-private: 
-    int teamSize;
-
-public:
-    int getTeamSize(){
-        return teamSize;
-    }
-
-    void setTeamSize(int t){
-        teamSize = t;
-    }
-
-    double calculateBonus(double salary, int teamSize){
-        double bonus;
-        double teamBonus = 0;
-
-        for(int i = 0; i <=teamSize; i++){
-            teamBonus += 1/20 * salary;
-        }
-
-        bonus = 1/10 * salary + teamBonus;
-
-        return bonus;
-    }
-};
-
-class Developer : public Employee{
-private:
-    string programmingLanguage;
-
-public:
-    string getProgrammingLanguage(){
-        return programmingLanguage;
-    }
-
-    void setProgrammingLanguage(string pl){
-        programmingLanguage = pl;
-    }
-
-    double calculateBonus(double salary){
-        double bonus;
-
-        if(programmingLanguage == "Java"){
-            return bonus = 3/20 * salary;
-        } else {
-            return bonus = 1/10 * salary;
-        }
-    }
-};
+}
