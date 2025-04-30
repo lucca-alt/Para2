@@ -164,6 +164,7 @@ int main(){
     set.add('B');
     set.add('C');
     set.add('7');
+    set.add('Z');
     std::cout << set.remove('Z') << std::endl;
     std::cout << set.size() << std::endl;
     std::cout << set.contains('G') << std::endl;

@@ -12,7 +12,7 @@ int main(){
     pq.put("VeryImportantEmail", 8);
     pq.put("RoutineCheck", 2);
     pq.put("ExtinctionEvent", 99);
-
+    
     for(int i = 0; i < 7; i++){
         std::cout << pq.pop() << std::endl;
     }

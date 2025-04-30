@@ -79,7 +79,7 @@ void PriorityQueue::checkCapacity(){
         capacity = decreasedCapacity;
     }
 
-    std::cout << capacity << std::endl; //checking for dynamically adjusted heap
+    std::cout << "Capacity is: " << capacity << std::endl; //checking for dynamically adjusted heap
 }
 
 void PriorityQueue::put(std::string value, int priority){
